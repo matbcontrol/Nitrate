@@ -6,7 +6,7 @@ A moonlit silhouette loop rendered in real time in Unity 6 URP. The turning sail
 
 **2.46 ms per frame at 1080p on a laptop GTX 1650 Ti. 11.0 ms at 720p on the laptop's Intel UHD with the Low preset.** Both measured in a player build (see [Frame budget](#frame-budget)).
 
-**[Download the Windows build (v1.0)](https://github.com/matbcontrol/Nitrate/releases/tag/v1.0)**, run it, and check the numbers on your own GPU with `RunBenchmark.bat`.
+**[Download the Windows build](https://github.com/matbcontrol/Nitrate/releases/latest)**, run it, and press `F9` to measure it on your own GPU. The build is not code-signed, so Windows may show a warning; the SHA-256 of the zip is in the release notes, and you can always build it yourself from this repository.
 
 ## How it works
 
@@ -68,9 +68,9 @@ GPU time per frame, median:
 - right mouse drag: move the moon, `C`: cursor.
 
 **Benchmark.**
-1. Build the player.
-2. Run `Nitrate.exe -benchmark`. The CSV is written next to the exe, and `benchmarks/RunBenchmark.bat` does the same at 1080p fullscreen.
-3. Optional flags:
+1. Build the player, or download it.
+2. Press `F9` in the running player. It plays 15 configurations over the loop (about 13 minutes) and writes a CSV next to the exe; the path is shown on screen when it ends.
+3. Or start it from a terminal: `Nitrate.exe -benchmark -screen-fullscreen 1 -screen-width 1920 -screen-height 1080`. Started this way, the player quits when it is done. Optional flags:
    - `-passes N` and `-measure S` set the number of passes and the seconds per configuration;
    - `-shots <folder>` saves one frame per configuration;
    - Unity's `-force-device-index N` picks the GPU on a laptop with two.
@@ -87,7 +87,7 @@ Assets/Nitrate/
   Shaders/Graphs/      Silhouette and Film Shader Graphs, custom-function HLSL
   Editor/              project setup, scene builder, verification, blue-noise generator
   Materials/  Scenes/  Textures/  Settings/
-benchmarks/            measured CSVs and a benchmark launcher
+benchmarks/            measured CSVs
 media/                 images used in this README
 ```
 

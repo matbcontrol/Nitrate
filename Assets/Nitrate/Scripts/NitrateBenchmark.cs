@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Nitrate
 {
@@ -54,6 +55,8 @@ namespace Nitrate
         int m_RowsWritten, m_RunCount;
         string m_Status = "";
         string m_ShotFolder;
+        bool m_QuitWhenDone;
+        int m_VSyncWas;
 
         static string Arg(string name)
         {
@@ -102,7 +105,22 @@ namespace Nitrate
             if (float.TryParse(Arg("-measure"), NumberStyles.Float, CultureInfo.InvariantCulture, out float m)) measureSeconds = m;
             m_ShotFolder = Arg("-shots");
             if (requested)
+            {
+                m_QuitWhenDone = true;
                 StartCoroutine(Run());
+            }
+        }
+
+        // F9 starts the same benchmark from inside the player, so no launcher script is needed. Started this way it
+        // keeps the player open at the end and shows where the CSV went.
+        void Update()
+        {
+            Keyboard keyboard = Keyboard.current;
+            if (!m_Running && keyboard != null && keyboard.f9Key.wasPressedThisFrame)
+            {
+                m_QuitWhenDone = false;
+                StartCoroutine(Run());
+            }
         }
 
         void OnDisable()
@@ -122,6 +140,7 @@ namespace Nitrate
             if (!FrameTimingManager.IsFeatureEnabled())
                 Debug.LogWarning("NitrateBenchmark: Frame Timing Stats is off (Player Settings), GPU/CPU columns will be n/a.");
 
+            m_VSyncWas = QualitySettings.vSyncCount;
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = -1;
             m_Running = true;
@@ -223,6 +242,7 @@ namespace Nitrate
         {
             Apply(Full("restore", false));
             controls.hudVisible = true;
+            QualitySettings.vSyncCount = m_VSyncWas;
             m_Running = false;
         }
 
@@ -277,7 +297,8 @@ namespace Nitrate
             string path = WriteCsv();
             m_Status = (finished ? "Benchmark done: " : "Benchmark stopped early: ") + path;
             Debug.Log(m_Status);
-            QuitPlayer(finished ? 0 : 1);
+            if (m_QuitWhenDone)
+                QuitPlayer(finished ? 0 : 1);
         }
 
         static void QuitPlayer(int exitCode)

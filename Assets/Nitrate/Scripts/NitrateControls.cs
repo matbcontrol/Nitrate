@@ -255,7 +255,7 @@ namespace Nitrate
                 m_Text.AppendFormat("[4] Beams <b>{0}</b> ({1} steps, 1/{2} res)   [5] Atmosphere {3}\n",
                     m_Atmosphere.beamMode, m_Atmosphere.beamSteps, m_Atmosphere.beamDownsample, On(m_Atmosphere.isActive));
             m_Text.AppendFormat("[6] Lit view {0}   [V] debug: {1}   [L] preset   [M] ember\n", On(m_LitView), m_Atmosphere != null ? m_Atmosphere.debugView.ToString() : "-");
-            m_Text.Append("Wheel: zoom   Space: loop   RMB drag: moon   C: cursor   H: hide");
+            m_Text.Append("Wheel: zoom   Space: loop   RMB drag: moon   C: cursor   H: hide   F9: benchmark");
 
             const float width = 520f, height = 116f;
             GUI.color = new Color(0f, 0f, 0f, 0.6f);

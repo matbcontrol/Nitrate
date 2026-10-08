@@ -27,3 +27,6 @@
 crashlytics-buildid.txt
 sysinfo.txt
 .DS_Store
+
+# scene backups Unity writes after a crash
+/[Aa]ssets/_Recovery*
