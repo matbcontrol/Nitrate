@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NitrateAtmosphere
+  m_Shader: {fileID: 4800000, guid: 7cd095dd4bb21a944883bf637f792b11, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BeamAnisotropy: 0.7
+    - _BeamDensity: 0.004
+    - _BeamFloor: 0.03
+    - _BeamGain: 1.3
+    - _BeamHeightFalloff: 25
+    - _BeamIntensity: 0.6
+    - _BeamMaxDistance: 200
+    - _BlurDepthTolerance: 0.1
+    - _BlurFar1: 250
+    - _BlurFar2: 700
+    - _BlurNear: 20
+    - _BlurSky: 0.4
+    - _FogDistance: 120
+    - _FogGamma: 1.6
+    - _FogMax: 0.95
+    - _GlowOnFog: 0.35
+    - _HeroMask: 4
+    - _LanternScatter: 0.03
+    - _MistAmount: 0.15
+    - _MistHeight: 2.5
+    - _MoonIntensity: 6
+    - _MoonRadius: 1.35
+    - _Motes: 1
+    - _Ripple: 0.09
+    - _WaterLevel: 0
+    - _WaterReflect: 0.9
+    m_Colors:
+    - _GlowTight: {r: 1.2, g: 2.4, b: 0, a: 0}
+    - _GlowWide: {r: 0.45, g: 6, b: 0, a: 0}
+    - _HorizonColor: {r: 0.12, g: 0.12, b: 0.12, a: 1}
+    - _NadirColor: {r: 0.02, g: 0.02, b: 0.02, a: 1}
+    - _SkyGradient: {r: -0.02, g: 0.45, b: 0, a: 0}
+    - _ZenithColor: {r: 0.015, g: 0.015, b: 0.015, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
