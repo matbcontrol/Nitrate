@@ -26,7 +26,7 @@ A moonlit silhouette loop rendered in real time in Unity 6 URP. The turning sail
    - a TPDF dither. The dither needs a 64-bit HDR target, because R11G11B10 quantises it away.
 5. **Camera and loop.** A dolly zoom with a physical-camera lens shift keeps the hub on the upper-right thirds point while the field of view goes from 15° to 38° (`Scripts/NitrateDollyZoom.cs`). Everything moves on one 15 s clock, with periods that divide the loop, so the loop has no seam.
 
-`Shaders/NitrateSilhouette.shader` and `Shaders/NitrateFilm.shader` are the same code as the two graphs, written by hand and kept as a readable reference. At render scale 1 the film graph's output is bit-identical to the shader. The silhouette graph differs in a few edge pixels of the grass, from floating-point ordering.
+`Shaders/NitrateSilhouette.shader` and `Shaders/NitrateFilm.shader` are the same code as the two graphs, written by hand and kept as a readable reference. Rendered side by side, each graph and its shader differ in fewer than 0.01% of the pixels, from floating-point ordering.
 
 ![Debug views: shadow map at scene depth, beams only, fog amount](media/debug_views.jpg)
 

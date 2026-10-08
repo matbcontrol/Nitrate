@@ -54,14 +54,20 @@ void NitrateHash21_float(float In, out float2 Out)
     Out = NitrateFilmHash21(In);
 }
 
-// Smoothly interpolated TPDF blue noise at a fractional cell position.
 // The size the camera renders at (smaller than the screen when the render scale is below 1).
 void NitrateScaledScreen_float(out float Width, out float Height)
 {
+#if defined(SHADERGRAPH_PREVIEW)
+    // Node previews are compiled without URP's globals.
+    Width = _ScreenParams.x;
+    Height = _ScreenParams.y;
+#else
     Width = _ScaledScreenParams.x;
     Height = _ScaledScreenParams.y;
+#endif
 }
 
+// Smoothly interpolated TPDF blue noise at a fractional cell position.
 void NitrateGrainTPDF_float(UnityTexture2D BlueNoise, float2 Cell, float Frame, out float Out)
 {
     int2 b = int2(floor(Cell));
