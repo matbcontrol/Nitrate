@@ -6,6 +6,8 @@ A moonlit silhouette loop rendered in real time in Unity 6 URP. The turning sail
 
 **2.46 ms per frame at 1080p on a laptop GTX 1650 Ti. 11.0 ms at 720p on the laptop's Intel UHD with the Low preset.** Both measured in a player build (see [Frame budget](#frame-budget)).
 
+**[Download the Windows build (v1.0)](https://github.com/matbcontrol/Nitrate/releases/tag/v1.0)**, run it, and check the numbers on your own GPU with `RunBenchmark.bat`.
+
 ## How it works
 
 ![The frame, layer by layer](media/breakdown_layers.jpg)
